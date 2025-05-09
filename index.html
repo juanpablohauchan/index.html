@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Contador y Estilos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            background-color: #f0f0f0;
+            background-image: url('URL_DEL_FONDO_AQUI');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff6600;
+        }
+
+        #contador {
+            font-size: 1.5em;
+            color: #0066ff;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenidos a mi página</h1>
+    <p>Este es un contador interactivo:</p>
+    <div id="contador">0</div>
+    <button onclick="incrementarContador()">Incrementar</button>
+
+    <script>
+        // Contador inicial
+        let contador = 0;
+
+        // Función para incrementar el contador
+        function incrementarContador() {
+            contador++;
+            document.getElementById('contador').innerText = contador;
+        }
+    </script>
+</body>
+</html>
