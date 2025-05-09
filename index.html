@@ -3,61 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Contador y Estilos</title>
+    <title>Contador de vistas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 16px;
-            background-color: #f0f0f0;
-            background-image: url('https://img1.wallspic.com/crops/1/6/0/6/7/176061/176061-ilustracion_de_paisaje_de_manzana-manzana-ilustracion-paisaje_natural-morado-1920x1080.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #333;
             text-align: center;
-            padding: 20px;
+            margin-top: 50px;
         }
-
-        h1 {
-            font-size: 2.5em;
-            color: #ff6600;
+        #counter {
+            font-size: 2rem;
+            margin: 20px 0;
         }
-
-        #contador {
-            font-size: 1.5em;
-            color: #0066ff;
-        }
-
         button {
             padding: 10px 20px;
-            font-size: 1em;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            font-size: 1rem;
             cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <h1>Bienvenidos a mi página</h1>
-    <p>Este es un contador interactivo:</p>
-    <div id="contador">0</div>
-    <button onclick="incrementarContador()">Incrementar</button>
+    <h1>Bienvenido a mi sitio web</h1>
+    <p id="counter">Cargando...</p>
+    <button onclick="redirectToPage()">Ir a otra página</button>
 
     <script>
-        // Contador inicial
-        let contador = 0;
-
-        // Función para incrementar el contador
-        function incrementarContador() {
-            contador++;
-            document.getElementById('contador').innerText = contador;
+        // Función para aumentar el contador de vistas
+        function increaseViewCount() {
+            // Obtén el contador actual desde localStorage o inicialízalo en 0
+            let viewCount = localStorage.getItem('viewCount');
+            if (!viewCount) {
+                viewCount = 0;
+            } else {
+                viewCount = parseInt(viewCount);
+            }
+            // Incrementa el contador
+            viewCount++;
+            // Guarda el nuevo valor en localStorage
+            localStorage.setItem('viewCount', viewCount);
+            // Actualiza el texto en pantalla
+            document.getElementById('counter').innerText = `Vistas: ${viewCount}`;
         }
+
+        // Función para redirigir a otra página
+        function redirectToPage() {
+            window.location.href = "https://tusitioweb.com/otra-pagina.html"; // Cambia la URL aquí
+        }
+
+        // Llama a la función para aumentar el contador al cargar la página
+        increaseViewCount();
     </script>
 </body>
 </html>
